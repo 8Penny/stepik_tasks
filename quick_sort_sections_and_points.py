@@ -15,7 +15,7 @@ def bin_search_ind(a, n, relate=operator.lt, index=0):
         else:
             l = mid + 1
 
-    return l, r
+    return l
 
 
 def partition(sections, l, r, sort_ind=0, relate=operator.lt):
@@ -54,8 +54,8 @@ def get_occurrences_count(sections, points):
 
     result = []
     for point in points:
-        ind_1, _ = bin_search_ind(tail_sorted_sections, point, operator.le, 1)
-        ind_2, _ = bin_search_ind(sections, point, operator.lt)
+        ind_1 = bin_search_ind(tail_sorted_sections, point, operator.le, 1)
+        ind_2 = bin_search_ind(sections, point, operator.lt)
         result.append(ind_2 - ind_1)
     return " ".join(map(str, result))
 
